@@ -1,3 +1,5 @@
+import CocktailSearch from "./cocteles/cocktailsearch.jsx";
+
 import { useEffect, useState } from "react";
 
 export default function App() {
@@ -131,6 +133,7 @@ export default function App() {
       {items.length === 0 && (
         <p className="text-gray-500">No data available</p>
       )}
+        <CocktailSearch />
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {items.map((item) => (
