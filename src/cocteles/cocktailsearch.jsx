@@ -3,23 +3,23 @@
 //Codigo de Marco
 /*
 export default function CocktailSearch() {
-  const [query, setQuery] = useState("");
-  const [drinks, setDrinks] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [query, setQuery] = useState(""); // estado que guarda lo que ingresa el usuario
+  const [drinks, setDrinks] = useState([]); // estado para guardar los cocteles que regresa el API
+  const [loading, setLoading] = useState(false); // estado para mostrar si esta cargando la peticion 
 
-  const buscar = async () => {
-    if (!query.trim()) return;
+  const buscar = async () => { // iniciar la peticion al momento de presionar buscar
+    if (!query.trim()) return; // si el query esta vacio no va a hacer nada
 
     setLoading(true);
 
     try {
-      const res = await fetch(
+      const res = await fetch( // llama a la api 
         `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${query}`
       );
-      const data = await res.json();
+      const data = await res.json(); // convierte la respuesta en json
       setDrinks(data.drinks || []);
     } catch (error) {
-      console.error(error);
+      console.error(error); // si hay un error en la peticion se muestra en consola 
       setDrinks([]);
     }
 
@@ -28,7 +28,7 @@ export default function CocktailSearch() {
 
   return (
     <div className="p-4">
-      <h2 className="text-2xl font-bold mb-4">Buscador de Cócteles</h2>
+      <h2 className="text-2xl font-bold mb-4">Buscar Cócteles</h2>
 
       <div className="flex gap-2 mb-4">
         <input
